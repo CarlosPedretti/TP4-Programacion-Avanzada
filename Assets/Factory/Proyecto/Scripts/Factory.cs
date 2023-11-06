@@ -19,7 +19,7 @@ public class Factory : MonoBehaviour
             _idToObject.Add(obj.Id, obj);
         }
     }
-    public Object Create(string id)
+    public Object Create(string id, Transform objectPosition)
     {
 
         if (!_idToObject.TryGetValue(id, out var _object))
@@ -27,6 +27,6 @@ public class Factory : MonoBehaviour
             Debug.Log("Object with id: " + id + " does not exist");
         }
 
-        return Instantiate(_object, gameObject.transform);
+        return Instantiate(_object, objectPosition.transform);
     }
 }
